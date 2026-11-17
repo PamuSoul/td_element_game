@@ -24,6 +24,7 @@ const WAYPOINTS: Array[Vector2i] = MapDef.WAYPOINTS
 var curve := Curve2D.new()
 var path_len := 0.0
 var path_cells := {}
+var blocked_cells := {}  # 池塘、大樹等景物
 var towers_by_cell := {}
 var enemies: Array = []
 var towers: Array = []
@@ -96,8 +97,11 @@ func _ready() -> void:
 # ══════════════════════════ 地圖 ══════════════════════════
 
 func _build_path() -> void:
+	# 敵人沿圓滑彎道行走；格子判定（不能蓋塔的路徑格）仍以直角折線計算
+	for pt in MapDef.path_points():
+		curve.add_point(pt)
+	blocked_cells = MapDef.blocked_cells()
 	for i in WAYPOINTS.size():
-		curve.add_point(_cell_center(WAYPOINTS[i]))
 		if i > 0:
 			var a := WAYPOINTS[i - 1]
 			var b := WAYPOINTS[i]
@@ -121,7 +125,7 @@ func _cell_at(pos: Vector2) -> Vector2i:
 
 func _can_build(c: Vector2i) -> bool:
 	return c.x >= 0 and c.x < COLS and c.y >= 0 and c.y < ROWS \
-		and not path_cells.has(c) and not towers_by_cell.has(c)
+		and not path_cells.has(c) and not towers_by_cell.has(c) and not blocked_cells.has(c)
 
 
 func _draw_overlay() -> void:

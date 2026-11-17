@@ -163,6 +163,65 @@ def decor():
     save("deco_stump", "\n".join(b), defs, size=64)
 
 
+# ════════════════════════════ 森林景物（大樹、池塘植物） ════════════════════════════
+
+def forest():
+    # 闊葉樹：3/4 俯視，樹幹在下、樹冠層疊
+    rng = random.Random(41)
+    defs = (lin("tk", [(0, "#7a5230", 1), (1, "#4a2e18", 1)], x2=1, y2=0)
+            + rad("c0", [(0, "#4f9a3e", 1), (1, "#1f4f2a", 1)], cx=0.4, cy=0.35, r=0.75)
+            + rad("c1", [(0, "#8acb52", 1), (0.6, "#57a043", 1), (1, "#2f6a34", 1)], cx=0.35, cy=0.3, r=0.8)
+            + rad("c2", [(0, "#c4e878", 1), (1, "#7fbf4a", 1)], cx=0.4, cy=0.35, r=0.7))
+    b = ['<path d="M112 250 C110 220 108 200 114 176 L142 176 C148 200 146 220 144 250 Z" fill="url(#tk)" stroke="#2a180a" stroke-width="5"/>',
+         '<path d="M114 246 C96 248 84 252 78 254 M142 246 C160 248 172 252 180 254" stroke="#4a2e18" stroke-width="9" stroke-linecap="round"/>']
+    b.append(f'<path d="{blob(128, 118, 104, 0.1, 14, rng)}" fill="url(#c0)" stroke="#143a1e" stroke-width="6"/>')
+    for x, y, r in [(82, 120, 46), (172, 118, 46), (128, 150, 50), (100, 78, 44), (156, 80, 44), (128, 112, 52)]:
+        b.append(f'<path d="{blob(x, y, r, 0.14, 10, rng)}" fill="url(#c1)" stroke="#1f4a24" stroke-width="4"/>')
+    for x, y, r in [(92, 72, 22), (128, 92, 24), (70, 108, 18), (150, 64, 18), (110, 132, 16)]:
+        b.append(f'<path d="{blob(x, y, r, 0.2, 8, rng)}" fill="url(#c2)" opacity="0.9"/>')
+    for _ in range(9):
+        x, y = rng.uniform(60, 196), rng.uniform(50, 170)
+        b.append(f'<circle cx="{x:.0f}" cy="{y:.0f}" r="5" fill="#f4f0d0" stroke="#7a6a3a" stroke-width="1.5"/>'
+                 f'<circle cx="{x:.0f}" cy="{y:.0f}" r="2" fill="#f0b030"/>')
+    save("tree_0", "\n".join(b), defs, vb=256, size=192)
+
+    # 針葉樹：層層的鋸齒樹冠
+    defs = (lin("tk", [(0, "#6a4428", 1), (1, "#3a2414", 1)], x2=1, y2=0)
+            + lin("p0", [(0, "#3f8a5a", 1), (1, "#1a4a34", 1)], x2=1, y2=1))
+    b = ['<rect x="116" y="200" width="24" height="50" rx="6" fill="url(#tk)" stroke="#20120a" stroke-width="5"/>']
+    for k, (y, w) in enumerate([(206, 110), (168, 92), (130, 74), (92, 56), (58, 38)]):
+        pts = []
+        n = 9
+        for i in range(n + 1):
+            x = 128 - w + 2 * w * i / n
+            yy = y + (10 if i % 2 else 0)
+            pts.append(f"{x:.0f},{yy:.0f}")
+        pts.append(f"128,{y - 70 + k * 4}")
+        col = ["#1f5a3c", "#2a6a46", "#357a50", "#43905c", "#52a468"][k]
+        b.append(f'<polygon points="{" ".join(pts)}" fill="{col}" stroke="#0f3020" stroke-width="5" stroke-linejoin="round"/>')
+        b.append(f'<path d="M{128 - w * 0.55:.0f} {y - 6} L128 {y - 58 + k * 4}" stroke="#8ad08a" stroke-width="5" stroke-linecap="round" opacity="0.45"/>')
+    b.append('<polygon points="128,0 120,20 136,20" fill="#ffe88a" opacity="0.0"/>')
+    save("tree_1", "\n".join(b), defs, vb=256, size=192)
+
+    # 睡蓮葉
+    b = ['<path d="M32 32 L60 22 A30 30 0 1 1 58 14 Z" fill="#4aa04a" stroke="#1f4a24" stroke-width="3"/>',
+         '<path d="M32 32 L14 20 M32 32 L18 48 M32 32 L44 54 M32 32 L56 40" stroke="#7fd06a" stroke-width="2"/>',
+         '<circle cx="24" cy="26" r="7" fill="#f6c8de" stroke="#a04a7a" stroke-width="2"/><circle cx="24" cy="26" r="3" fill="#ffe070"/>']
+    save("deco_lily", "\n".join(b), vb=64, size=40)
+
+    # 蘆葦
+    rng = random.Random(43)
+    b = []
+    for i in range(7):
+        x = 40 + i * 8 + rng.uniform(-3, 3)
+        h = rng.uniform(60, 100)
+        bend = rng.uniform(-14, 14)
+        b.append(f'<path d="M{x:.0f} 124 Q{x + bend * 0.4:.0f} {124 - h * 0.6:.0f} {x + bend:.0f} {124 - h:.0f}" stroke="#4a8a3a" stroke-width="4" fill="none" stroke-linecap="round"/>')
+        if i % 2 == 0:
+            b.append(f'<rect x="{x + bend - 4:.0f}" y="{124 - h - 4:.0f}" width="8" height="22" rx="4" fill="#7a5232" stroke="#3a2414" stroke-width="2"/>')
+    save("deco_reeds", "\n".join(b), size=64)
+
+
 # ════════════════════════════ 技能動畫素材（白色 / 灰階，遊戲內染色） ════════════════════════════
 
 def ability_fx():
@@ -534,6 +593,7 @@ def zones():
 
 if __name__ == "__main__":
     decor()
+    forest()
     ability_fx()
     castle()
     portal()
