@@ -34,6 +34,7 @@ var face := 1.0
 var anim := 0.0
 var knock := Vector2.ZERO  # 擊退 / 牽引的視覺位移，平滑歸零
 var hurt := 0.0  # 受擊閃白
+var emerge := 0.0  # 從傳送門現身的動畫進度 0 → 1
 
 
 func setup(g, k: String, wave: int) -> void:
@@ -51,7 +52,8 @@ func setup(g, k: String, wave: int) -> void:
 	color = d["color"]
 	tex = Data.tex("enemy_" + k)
 	anim = randf() * TAU
-	position = game.curve.sample_baked(0.0)
+	offset = game.spawn_offset
+	position = game.curve.sample_baked(offset)
 
 
 func add_status(s: String, dur: float, v: float = 0.0, p: float = 1.0, gen: int = 0) -> void:
@@ -88,7 +90,7 @@ func push(d: float) -> void:
 	if dead:
 		return
 	var old := position
-	offset = clampf(offset + d * tenacity, 0.0, game.path_len - 1.0)
+	offset = clampf(offset + d * tenacity, game.spawn_offset, game.path_len - 1.0)
 	position = game.curve.sample_baked(offset)
 	knock += old - position
 
@@ -141,6 +143,7 @@ func _process(delta: float) -> void:
 			queue_free()
 			return
 	knock = knock.lerp(Vector2.ZERO, 1.0 - exp(-delta * 12.0))
+	emerge = minf(emerge + delta / 0.45, 1.0)
 	hurt = maxf(hurt - delta, 0.0)
 	var np: Vector2 = game.curve.sample_baked(offset)
 	if absf(np.x - position.x) > 0.01:
@@ -153,10 +156,17 @@ func _process(delta: float) -> void:
 
 func _draw() -> void:
 	var size := radius * 3.4
+	# 從傳送門現身：由小變大、帶紫光淡入
+	if emerge < 1.0:
+		var k := 1.0 - pow(1.0 - emerge, 3.0)
+		size *= 0.25 + 0.75 * k
+		modulate = Color(1, 1, 1, k).lerp(Color(1, 1, 1, 1), k)
+	elif modulate.a < 1.0:
+		modulate = Color.WHITE
 	# 走路時的彈跳擠壓
 	var sq := 1.0 + 0.07 * sin(anim)
 	var hop := absf(sin(anim * 0.5)) * radius * 0.18
-	var tint := Color.WHITE
+	var tint := Color.WHITE.lerp(Color("d08aff"), 1.0 - emerge)
 	if st.has("burn") or st.has("wildfire"):
 		tint = tint.lerp(Color("ff8a3a"), 0.4)
 	if st.has("poison"):

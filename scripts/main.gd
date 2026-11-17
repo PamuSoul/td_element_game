@@ -23,6 +23,8 @@ const WAYPOINTS: Array[Vector2i] = MapDef.WAYPOINTS
 
 var curve := Curve2D.new()
 var path_len := 0.0
+var spawn_offset := 0.0  # 傳送門在路徑上的位置：敵人從這裡出現，擊退也不會退出傳送門
+var portal_pos := Vector2.ZERO
 var path_cells := {}
 var blocked_cells := {}  # 池塘、大樹等景物
 var towers_by_cell := {}
@@ -113,6 +115,8 @@ func _build_path() -> void:
 					break
 				c += step
 	path_len = curve.get_baked_length()
+	portal_pos = _cell_center(Vector2i(0, WAYPOINTS[0].y))
+	spawn_offset = curve.get_closest_offset(portal_pos)
 
 
 func _cell_center(c: Vector2i) -> Vector2:
@@ -209,6 +213,12 @@ func _spawn(k: String) -> void:
 	e.setup(self, k, wave)
 	world.add_child(e)
 	enemies.append(e)
+	# 傳送門吐出敵人：紫色閃光 + 光圈
+	var big: bool = k == "boss"
+	fx_flash(portal_pos, 46.0 if big else 30.0, Color("c070ff"))
+	fx_ring(portal_pos, 52.0 if big else 34.0, Color("d08aff"))
+	if big:
+		shake = maxf(shake, 4.0)
 
 
 func _wave_cleared() -> void:
