@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 128 128">
+<defs></defs>
+<path d="M35 100 Q40 82 44 70 Q42 85 43 100Z" fill="#3f8a3a" stroke="#1a3a1c" stroke-width="1.5"/>
+<path d="M43 100 Q48 83 49 72 Q49 86 51 100Z" fill="#4fa045" stroke="#1a3a1c" stroke-width="1.5"/>
+<path d="M43 100 Q43 78 33 64 Q46 82 51 100Z" fill="#3f8a3a" stroke="#1a3a1c" stroke-width="1.5"/>
+<path d="M51 100 Q55 84 57 73 Q57 86 59 100Z" fill="#4fa045" stroke="#1a3a1c" stroke-width="1.5"/>
+<path d="M56 100 Q56 76 46 60 Q59 80 64 100Z" fill="#2f7030" stroke="#1a3a1c" stroke-width="1.5"/>
+<path d="M57 100 Q62 81 63 69 Q64 84 65 100Z" fill="#4fa045" stroke="#1a3a1c" stroke-width="1.5"/>
+<path d="M64 100 Q64 82 55 71 Q67 85 72 100Z" fill="#68b850" stroke="#1a3a1c" stroke-width="1.5"/>
+<path d="M70 100 Q70 75 61 58 Q73 79 78 100Z" fill="#4fa045" stroke="#1a3a1c" stroke-width="1.5"/>
+<path d="M74 100 Q73 77 64 61 Q77 80 82 100Z" fill="#3f8a3a" stroke="#1a3a1c" stroke-width="1.5"/>
+<path d="M80 100 Q84 77 85 62 Q86 81 88 100Z" fill="#68b850" stroke="#1a3a1c" stroke-width="1.5"/>
+<path d="M84 100 Q86 71 83 52 Q89 76 92 100Z" fill="#4fa045" stroke="#1a3a1c" stroke-width="1.5"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+<defs><radialGradient id="pg" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#f6d0ff" stop-opacity="1"/><stop offset="0.35" stop-color="#b060f0" stop-opacity="1"/><stop offset="0.75" stop-color="#4a1a80" stop-opacity="1"/><stop offset="1" stop-color="#1a0a30" stop-opacity="1"/></radialGradient><radialGradient id="ph" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#c070ff" stop-opacity="0.5"/><stop offset="1" stop-color="#c070ff" stop-opacity="0"/></radialGradient></defs>
+<circle cx="64" cy="64" r="62" fill="url(#ph)"/>
+<ellipse cx="64" cy="64" rx="40" ry="48" fill="url(#pg)" stroke="#2a1040" stroke-width="5"/>
+<polyline points="67.3,64.0 68.6,65.9 69.1,68.7 68.6,71.9 66.7,75.1 63.7,77.5 59.7,78.5 55.2,77.6 50.8,74.5 47.3,69.5 45.2,62.7 45.0,54.8 47.2,46.8 51.7,39.6 58.2,34.2 66.3,31.6 75.2,32.4 83.8,36.9" fill="none" stroke="#f0c8ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+<polyline points="62.4,67.5 60.4,67.9 58.1,67.1 56.1,64.8 54.7,61.3 54.6,56.9 55.9,52.2 58.8,47.9 63.1,44.8 68.5,43.6 74.4,44.8 80.0,48.6 84.7,54.8 87.5,63.2 88.0,72.8 85.8,82.7 80.8,91.6 73.4,98.5" fill="none" stroke="#f0c8ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+<polyline points="62.4,60.5 63.0,58.2 64.7,56.3 67.4,55.2 70.5,55.6 73.7,57.6 76.4,61.3 78.0,66.5 78.1,72.6 76.2,78.9 72.5,84.6 67.0,88.6 60.2,90.4 52.8,89.3 45.7,85.0 39.8,77.7 36.0,68.0 34.9,56.6" fill="none" stroke="#f0c8ff" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+<rect x="105" y="57" width="14" height="14" rx="3" fill="#6a6f80" stroke="#2a2d38" stroke-width="2.5"/>
+<rect x="91" y="97" width="14" height="14" rx="3" fill="#6a6f80" stroke="#2a2d38" stroke-width="2.5"/>
+<rect x="57" y="113" width="14" height="14" rx="3" fill="#6a6f80" stroke="#2a2d38" stroke-width="2.5"/>
+<rect x="23" y="97" width="14" height="14" rx="3" fill="#6a6f80" stroke="#2a2d38" stroke-width="2.5"/>
+<rect x="9" y="57" width="14" height="14" rx="3" fill="#6a6f80" stroke="#2a2d38" stroke-width="2.5"/>
+<rect x="23" y="17" width="14" height="14" rx="3" fill="#6a6f80" stroke="#2a2d38" stroke-width="2.5"/>
+<rect x="57" y="1" width="14" height="14" rx="3" fill="#6a6f80" stroke="#2a2d38" stroke-width="2.5"/>
+<rect x="91" y="17" width="14" height="14" rx="3" fill="#6a6f80" stroke="#2a2d38" stroke-width="2.5"/>
+</svg>

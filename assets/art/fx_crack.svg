@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 256 256">
+<defs><radialGradient id="g" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#000" stop-opacity="0.55"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient></defs>
+<circle cx="128" cy="128" r="54" fill="url(#g)"/>
+<polyline points="128,128 143,124 161,109 168,93 172,66 194,54 206,44 213,25" fill="none" stroke="#000" stroke-width="8.0" stroke-linejoin="round" stroke-linecap="round" opacity="0.75"/>
+<polyline points="128,128 143,124 161,109 168,93 172,66 194,54 206,44 213,25" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round" opacity="0.25" transform="translate(2 2)"/>
+<polyline points="128,128 137,139 155,148 172,154 200,153 214,164 214,202 241,207" fill="none" stroke="#000" stroke-width="5.6" stroke-linejoin="round" stroke-linecap="round" opacity="0.75"/>
+<polyline points="128,128 137,139 155,148 172,154 200,153 214,164 214,202 241,207" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round" opacity="0.25" transform="translate(2 2)"/>
+<polyline points="128,128 137,152 133,176 149,195 142,221 133,238 174,246" fill="none" stroke="#000" stroke-width="6.0" stroke-linejoin="round" stroke-linecap="round" opacity="0.75"/>
+<polyline points="128,128 137,152 133,176 149,195 142,221 133,238 174,246" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round" opacity="0.25" transform="translate(2 2)"/>
+<polyline points="128,128 118,144 95,155 63,151 46,170 28,169 4,162" fill="none" stroke="#000" stroke-width="5.3" stroke-linejoin="round" stroke-linecap="round" opacity="0.75"/>
+<polyline points="128,128 118,144 95,155 63,151 46,170 28,169 4,162" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round" opacity="0.25" transform="translate(2 2)"/>
+<polyline points="128,128 105,138 91,158 67,154 40,133 24,137 1,144" fill="none" stroke="#000" stroke-width="7.4" stroke-linejoin="round" stroke-linecap="round" opacity="0.75"/>
+<polyline points="128,128 105,138 91,158 67,154 40,133 24,137 1,144" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round" opacity="0.25" transform="translate(2 2)"/>
+<polyline points="128,128 113,127 87,135 73,144 48,131 28,132 7,152" fill="none" stroke="#000" stroke-width="6.1" stroke-linejoin="round" stroke-linecap="round" opacity="0.75"/>
+<polyline points="128,128 113,127 87,135 73,144 48,131 28,132 7,152" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round" opacity="0.25" transform="translate(2 2)"/>
+<polyline points="128,128 112,113 96,110 81,92 71,65 75,41 50,26" fill="none" stroke="#000" stroke-width="5.0" stroke-linejoin="round" stroke-linecap="round" opacity="0.75"/>
+<polyline points="128,128 112,113 96,110 81,92 71,65 75,41 50,26" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round" opacity="0.25" transform="translate(2 2)"/>
+<polyline points="128,128 126,111 117,98 93,84 68,79 70,54 42,57 39,32" fill="none" stroke="#000" stroke-width="6.6" stroke-linejoin="round" stroke-linecap="round" opacity="0.75"/>
+<polyline points="128,128 126,111 117,98 93,84 68,79 70,54 42,57 39,32" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round" opacity="0.25" transform="translate(2 2)"/>
+<polyline points="128,128 144,118 163,106 181,93 180,68 208,63 238,61" fill="none" stroke="#000" stroke-width="6.7" stroke-linejoin="round" stroke-linecap="round" opacity="0.75"/>
+<polyline points="128,128 144,118 163,106 181,93 180,68 208,63 238,61" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round" opacity="0.25" transform="translate(2 2)"/>
+</svg>

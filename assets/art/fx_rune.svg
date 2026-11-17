@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+<defs></defs>
+<circle cx="128" cy="128" r="120" fill="none" stroke="#fff" stroke-width="6"/>
+<circle cx="128" cy="128" r="104" fill="none" stroke="#fff" stroke-width="3"/>
+<circle cx="128" cy="128" r="58" fill="none" stroke="#fff" stroke-width="4"/>
+<polygon points="128.0,24.0 218.1,180.0 37.9,180.0" fill="none" stroke="#fff" stroke-width="3.5"/>
+<polygon points="128.0,232.0 37.9,76.0 218.1,76.0" fill="none" stroke="#fff" stroke-width="3.5"/>
+<line x1="234.0" y1="128.0" x2="240.0" y2="128.0" stroke="#fff" stroke-width="3"/>
+<line x1="230.4" y1="155.4" x2="242.0" y2="158.5" stroke="#fff" stroke-width="3"/>
+<line x1="219.8" y1="181.0" x2="225.0" y2="184.0" stroke="#fff" stroke-width="3"/>
+<line x1="203.0" y1="203.0" x2="211.4" y2="211.4" stroke="#fff" stroke-width="3"/>
+<line x1="181.0" y1="219.8" x2="184.0" y2="225.0" stroke="#fff" stroke-width="3"/>
+<line x1="155.4" y1="230.4" x2="158.5" y2="242.0" stroke="#fff" stroke-width="3"/>
+<line x1="128.0" y1="234.0" x2="128.0" y2="240.0" stroke="#fff" stroke-width="3"/>
+<line x1="100.6" y1="230.4" x2="97.5" y2="242.0" stroke="#fff" stroke-width="3"/>
+<line x1="75.0" y1="219.8" x2="72.0" y2="225.0" stroke="#fff" stroke-width="3"/>
+<line x1="53.0" y1="203.0" x2="44.6" y2="211.4" stroke="#fff" stroke-width="3"/>
+<line x1="36.2" y1="181.0" x2="31.0" y2="184.0" stroke="#fff" stroke-width="3"/>
+<line x1="25.6" y1="155.4" x2="14.0" y2="158.5" stroke="#fff" stroke-width="3"/>
+<line x1="22.0" y1="128.0" x2="16.0" y2="128.0" stroke="#fff" stroke-width="3"/>
+<line x1="25.6" y1="100.6" x2="14.0" y2="97.5" stroke="#fff" stroke-width="3"/>
+<line x1="36.2" y1="75.0" x2="31.0" y2="72.0" stroke="#fff" stroke-width="3"/>
+<line x1="53.0" y1="53.0" x2="44.6" y2="44.6" stroke="#fff" stroke-width="3"/>
+<line x1="75.0" y1="36.2" x2="72.0" y2="31.0" stroke="#fff" stroke-width="3"/>
+<line x1="100.6" y1="25.6" x2="97.5" y2="14.0" stroke="#fff" stroke-width="3"/>
+<line x1="128.0" y1="22.0" x2="128.0" y2="16.0" stroke="#fff" stroke-width="3"/>
+<line x1="155.4" y1="25.6" x2="158.5" y2="14.0" stroke="#fff" stroke-width="3"/>
+<line x1="181.0" y1="36.2" x2="184.0" y2="31.0" stroke="#fff" stroke-width="3"/>
+<line x1="203.0" y1="53.0" x2="211.4" y2="44.6" stroke="#fff" stroke-width="3"/>
+<line x1="219.8" y1="75.0" x2="225.0" y2="72.0" stroke="#fff" stroke-width="3"/>
+<line x1="230.4" y1="100.6" x2="242.0" y2="97.5" stroke="#fff" stroke-width="3"/>
+<circle cx="199.0" cy="169.0" r="7" fill="#fff"/>
+<circle cx="128.0" cy="210.0" r="7" fill="#fff"/>
+<circle cx="57.0" cy="169.0" r="7" fill="#fff"/>
+<circle cx="57.0" cy="87.0" r="7" fill="#fff"/>
+<circle cx="128.0" cy="46.0" r="7" fill="#fff"/>
+<circle cx="199.0" cy="87.0" r="7" fill="#fff"/>
+</svg>

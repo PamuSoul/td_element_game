@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 160 160">
+<defs><linearGradient id="st" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c5cbdb" stop-opacity="1"/><stop offset="1" stop-color="#7c8499" stop-opacity="1"/></linearGradient><linearGradient id="rf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6f8cf0" stop-opacity="1"/><stop offset="1" stop-color="#3a52b0" stop-opacity="1"/></linearGradient></defs>
+<ellipse cx="80" cy="140" rx="68" ry="14" fill="#000" opacity="0.35"/>
+<rect x="16" y="56" width="36" height="86" fill="url(#st)" stroke="#3a3f4f" stroke-width="3"/>
+<polygon points="10,58 34,16 58,58" fill="url(#rf)" stroke="#24306a" stroke-width="3"/>
+<rect x="29" y="76" width="10" height="18" rx="5" fill="#2a2233"/>
+<rect x="108" y="56" width="36" height="86" fill="url(#st)" stroke="#3a3f4f" stroke-width="3"/>
+<polygon points="102,58 126,16 150,58" fill="url(#rf)" stroke="#24306a" stroke-width="3"/>
+<rect x="121" y="76" width="10" height="18" rx="5" fill="#2a2233"/>
+<rect x="46" y="70" width="68" height="72" fill="url(#st)" stroke="#3a3f4f" stroke-width="3"/>
+<rect x="46" y="58" width="12" height="14" fill="#b4bbcc" stroke="#3a3f4f" stroke-width="3"/>
+<rect x="65" y="58" width="12" height="14" fill="#b4bbcc" stroke="#3a3f4f" stroke-width="3"/>
+<rect x="83" y="58" width="12" height="14" fill="#b4bbcc" stroke="#3a3f4f" stroke-width="3"/>
+<rect x="102" y="58" width="12" height="14" fill="#b4bbcc" stroke="#3a3f4f" stroke-width="3"/>
+<path d="M64 142 V112 a16 16 0 0 1 32 0 V142Z" fill="#2a2233" stroke="#3a3f4f" stroke-width="3"/>
+<path d="M72 142 V114 M80 142 V108 M88 142 V114" stroke="#5a4a3a" stroke-width="3"/>
+<rect x="56" y="84" width="8" height="14" rx="4" fill="#ffd97a"/>
+<rect x="98" y="84" width="8" height="14" rx="4" fill="#ffd97a"/>
+<line x1="80" y1="58" x2="80" y2="14" stroke="#3a3f4f" stroke-width="3"/>
+<path d="M80 16 L108 24 L80 34Z" fill="#e0465a" stroke="#7a1f2c" stroke-width="2"/>
+</svg>
