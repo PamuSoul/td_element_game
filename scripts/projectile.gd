@@ -42,14 +42,14 @@ func _add_trail() -> void:
 	trail.local_coords = false
 	var first: String = elems[0] if not elems.is_empty() else ""
 	trail.texture = Data.tex(TRAIL_TEX.get(first, "fx_glow"))
-	trail.amount = 18 if kind == "cannon" else 12
-	trail.lifetime = 0.35
+	trail.amount = 24 if kind == "cannon" else 18
+	trail.lifetime = 0.45
 	trail.gravity = Vector2(0, -40) if first == "fire" else Vector2.ZERO
 	trail.spread = 180.0
 	trail.initial_velocity_min = 4.0
 	trail.initial_velocity_max = 18.0
 	trail.angle_max = 360.0
-	var big := 0.3 if kind == "cannon" else 0.2
+	var big := 0.5 if kind == "cannon" else 0.38
 	trail.scale_amount_min = big * 0.5
 	trail.scale_amount_max = big
 	trail.color = color.lightened(0.25)
@@ -105,8 +105,18 @@ func _process(delta: float) -> void:
 
 func _draw() -> void:
 	if not effects.is_empty():
-		var g := 13.0 + 2.5 * sin(anim * 30.0)
-		draw_texture_rect(Data.tex("fx_glow"), Rect2(-g, -g, g * 2.0, g * 2.0), false, Color(color.r, color.g, color.b, 0.8))
+		var g := 18.0 + 3.0 * sin(anim * 30.0)
+		draw_texture_rect(Data.tex("fx_glow"), Rect2(-g, -g, g * 2.0, g * 2.0), false, Color(color.r, color.g, color.b, 0.9))
+		# 元素彈頭：火球 / 水珠 / 葉刃 / 電光 / 岩塊
+		var first: String = elems[0] if not elems.is_empty() else ""
+		var head: String = TRAIL_TEX.get(first, "")
+		if first == "earth":
+			head = "fx_rock"
+		if head != "":
+			var hs := 22.0 if kind == "cannon" else 16.0
+			draw_set_transform(Vector2.ZERO, anim * (8.0 if first in ["wood", "earth"] else 0.0), Vector2.ONE)
+			draw_texture_rect(Data.tex(head), Rect2(-hs / 2.0, -hs / 2.0, hs, hs), false, color.lightened(0.35))
+			draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	if kind == "arrow":
 		draw_texture_rect(Data.tex("arrow"), Rect2(-8, -10, 16, 16), false)
 	else:

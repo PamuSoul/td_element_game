@@ -185,8 +185,8 @@ func _draw() -> void:
 
 	# 碎甲：身上的裂痕
 	if st.has("vuln"):
-		var cr := radius * 1.1
-		draw_texture_rect(Data.tex("fx_crack"), Rect2(-cr, -cr - radius * 0.2, cr * 2.0, cr * 2.0), false, Color(0.25, 0.12, 0.05, 0.8))
+		var cr := radius * 1.4
+		draw_texture_rect(Data.tex("fx_crack"), Rect2(-cr, -cr - radius * 0.2, cr * 2.0, cr * 2.0), false, Color(0.25, 0.12, 0.05, 0.95))
 	if st.has("root"):
 		# 藤蔓由下往上纏繞長出
 		var rd: Dictionary = st["root"]
@@ -200,16 +200,16 @@ func _draw() -> void:
 		var fc := Color("ffb040") if st.has("wildfire") else Color("ff7a30")
 		for i in 3:
 			var ph := now * 4.0 + i * 2.1
-			var fh := radius * (1.1 + 0.35 * sin(ph * 2.3))
-			var fx := (i - 1) * radius * 0.55 + sin(ph) * 2.0
-			draw_texture_rect(Data.tex("fx_flame"), Rect2(fx - fh * 0.4, -radius * 0.6 - fh, fh * 0.8, fh), false, Color(fc, 0.85))
+			var fh := radius * (1.9 + 0.5 * sin(ph * 2.3))
+			var fx := (i - 1) * radius * 0.7 + sin(ph) * 2.5
+			draw_texture_rect(Data.tex("fx_flame"), Rect2(fx - fh * 0.4, -radius * 0.2 - fh, fh * 0.8, fh), false, Color(fc, 0.95))
 	# 中毒：冒出綠色泡泡
 	if st.has("poison"):
 		for i in 2:
 			var ph := fposmod(now * 0.9 + i * 0.5, 1.0)
 			var bx := (i - 0.5) * radius * 0.9
 			var by := -radius * 0.4 - ph * radius * 1.6
-			var bs := 4.0 + 3.0 * ph
+			var bs := 5.0 + 5.0 * ph
 			draw_texture_rect(Data.tex("fx_bubble"), Rect2(bx - bs, by - bs, bs * 2.0, bs * 2.0), false, Color(0.55, 0.95, 0.4, 1.0 - ph))
 	# 潮濕：往下滴的水珠
 	if st.has("wet"):
@@ -217,7 +217,7 @@ func _draw() -> void:
 			var ph := fposmod(now * 1.3 + i * 0.47, 1.0)
 			var dx := (i - 0.5) * radius * 1.2
 			var dy := -radius * 0.2 + ph * radius * 1.2
-			draw_texture_rect(Data.tex("fx_drop"), Rect2(dx - 3, dy - 4, 6, 8), false, Color(0.6, 0.85, 1.0, 1.0 - ph))
+			draw_texture_rect(Data.tex("fx_drop"), Rect2(dx - 4.5, dy - 6, 9, 12), false, Color(0.6, 0.85, 1.0, 1.0 - ph))
 	if st.has("mark"):
 		var mr := radius + 7.0
 		draw_set_transform(knock, anim * 0.5, Vector2.ONE)

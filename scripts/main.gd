@@ -583,20 +583,40 @@ func fx_bolt(a: Vector2, b: Vector2, col: Color) -> void:
 func fx_elem(e: String, pos: Vector2, k: float = 1.0) -> void:
 	match e:
 		"water":
-			emit(pos, Color("9ad8ff"), int(4 * k), {"tex": "fx_drop", "speed": 120.0, "grav": Vector2(0, 420),
-				"spread": 70.0, "size": 0.3, "life": 0.45})
+			emit(pos, Color("9ad8ff"), int(6 * k), {"tex": "fx_drop", "speed": 170.0, "grav": Vector2(0, 520),
+				"spread": 70.0, "size": 0.5, "life": 0.6})
 		"fire":
-			emit(pos, Color("ff8a3a"), int(4 * k), {"tex": "fx_flame", "speed": 45.0, "grav": Vector2(0, -110),
-				"spread": 70.0, "size": 0.4, "life": 0.5, "radius": 6.0})
+			emit(pos, Color("ff8a3a"), int(6 * k), {"tex": "fx_flame", "speed": 60.0, "grav": Vector2(0, -150),
+				"spread": 70.0, "size": 0.7, "life": 0.65, "radius": 8.0})
 		"wood":
-			emit(pos, Color("8fe07a"), int(3 * k), {"tex": "fx_leaf", "speed": 100.0, "grav": Vector2(0, 70),
-				"size": 0.45, "life": 0.75, "spin": 360.0, "damp": 80.0, "add": false})
+			emit(pos, Color("8fe07a"), int(5 * k), {"tex": "fx_leaf", "speed": 130.0, "grav": Vector2(0, 80),
+				"size": 0.7, "life": 0.9, "spin": 360.0, "damp": 80.0, "add": false})
 		"thunder":
-			emit(pos, Color("fff07a"), int(4 * k), {"tex": "fx_spark", "speed": 190.0, "grav": Vector2.ZERO,
-				"size": 0.22, "life": 0.22})
+			emit(pos, Color("fff07a"), int(6 * k), {"tex": "fx_spark", "speed": 230.0, "grav": Vector2.ZERO,
+				"size": 0.4, "life": 0.3})
 		"earth":
-			emit(pos, Color("c49a6a"), int(3 * k), {"tex": "fx_rock", "speed": 130.0, "grav": Vector2(0, 480),
-				"spread": 60.0, "size": 0.3, "life": 0.5, "spin": 420.0, "add": false})
+			emit(pos, Color("c49a6a"), int(5 * k), {"tex": "fx_rock", "speed": 170.0, "grav": Vector2(0, 560),
+				"spread": 60.0, "size": 0.55, "life": 0.6, "spin": 420.0, "add": false})
+
+
+## 元素命中的「衝擊造型」：每次命中都看得到的主體動畫
+func fx_impact(e: String, pos: Vector2, k: float = 1.0) -> void:
+	var r := 24.0 * k
+	match e:
+		"water":
+			_fx("ripple", pos + Vector2(0, 4), Color("8fd0ff"), 0.6, {"radius": r * 1.3, "count": 2})
+			_fx("sprite", pos, Color("9ad8ff"), 0.35, {"tex": "fx_ring", "radius": r, "s0": 0.3, "s1": 1.0})
+		"fire":
+			_fx("sprite", pos + Vector2(0, -r * 0.4), Color("ff9a40"), 0.45, {"tex": "fx_flame", "radius": r, "s0": 0.3, "s1": 1.3})
+			fx_flash(pos, r * 1.1, Color("ff7a30"))
+		"wood":
+			_fx("spikes", pos + Vector2(0, 6), Color("5fce6a"), 0.55, {"radius": r * 1.1, "count": 4, "z": 1})
+		"thunder":
+			_fx("shock", pos, Color("f6d743"), 0.25, {"radius": r * 1.3, "count": 4})
+			fx_flash(pos, r * 0.9, Color("fff07a"))
+		"earth":
+			_fx("crack", pos, Color(0.2, 0.12, 0.05), 0.9, {"radius": r * 1.1, "z": -1})
+			_fx("sprite", pos, Color("e0c090"), 0.3, {"tex": "fx_ring", "radius": r, "s0": 0.3, "s1": 1.0})
 
 
 ## 命中特效：塔上每種元素各噴一點對應的粒子
@@ -608,7 +628,8 @@ func fx_hit(tw, pos: Vector2, big: bool = false) -> void:
 	for e in tw.elems:
 		if not seen.has(e):
 			seen[e] = true
-			fx_elem(e, pos, 1.6 if big else 0.8)
+			fx_elem(e, pos, 1.5 if big else 1.0)
+			fx_impact(e, pos, 1.6 if big else 1.0)
 
 
 ## 敵人新獲得狀態時的動畫（由 enemy.add_status 呼叫）
