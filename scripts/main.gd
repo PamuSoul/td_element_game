@@ -870,7 +870,6 @@ func _sell_selected() -> void:
 	if selected == null:
 		return
 	gold += int(int(selected.def["cost"]) * SELL_RATE)
-	inventory.append_array(selected.elems)
 	towers.erase(selected)
 	towers_by_cell.erase(selected.cell)
 	selected.queue_free()
@@ -887,14 +886,6 @@ func _insert_element(idx: int) -> void:
 		return
 	selected.elems.append(inventory[idx])
 	inventory.remove_at(idx)
-	_tower_changed(selected)
-
-
-func _remove_element(slot: int) -> void:
-	if selected == null or slot >= selected.elems.size():
-		return
-	inventory.append(selected.elems[slot])
-	selected.elems.remove_at(slot)
 	_tower_changed(selected)
 
 
@@ -1129,8 +1120,9 @@ func _refresh_tower_panel() -> void:
 	for i in Data.MAX_SLOTS:
 		if i < selected.elems.size():
 			var b := _elem_button(selected.elems[i], 44.0)
-			b.tooltip_text = "點擊取回背包"
-			b.pressed.connect(_remove_element.bind(i))
+			b.tooltip_text = "元素已嵌入，無法取出"
+			b.focus_mode = Control.FOCUS_NONE
+			b.mouse_filter = Control.MOUSE_FILTER_PASS
 			slot_box.add_child(b)
 		else:
 			var e := Button.new()
@@ -1141,10 +1133,10 @@ func _refresh_tower_panel() -> void:
 	if selected.fusion.is_empty():
 		info_label.text = "%s\n\n尚未放入元素：點背包中的元素放入槽位。" % selected.def["desc"]
 	else:
-		info_label.text = "【%s】%s\n\n%s\n點槽位可取回元素。" % [
+		info_label.text = "【%s】%s\n\n%s\n元素放入後無法取出。" % [
 			Data.elem_names(Data.key_of(selected.elems)), selected.fusion["desc"], selected.def["desc"]]
 	sell_btn.visible = true
-	sell_btn.text = "拆除（退 $%d，元素歸還）" % int(int(selected.def["cost"]) * SELL_RATE)
+	sell_btn.text = "拆除（退 $%d，元素一併銷毀）" % int(int(selected.def["cost"]) * SELL_RATE)
 
 
 ## 動態合成預覽：滑鼠停在背包元素上時，顯示放入所選塔後會變成什麼
@@ -1160,7 +1152,7 @@ func _preview_insert(e: String) -> void:
 	var f := Data.get_fusion(next)
 	var key := Data.key_of(next)
 	var is_new := "（新發現！）" if not Data.unlocked.has(key) else ""
-	info_label.text = "裝備後將合成：\n【%s】%s\n\n%s" % [Data.fusion_title(next), is_new, f["desc"]]
+	info_label.text = "裝備後將合成：\n【%s】%s\n\n%s\n\n※ 放入後無法取出" % [Data.fusion_title(next), is_new, f["desc"]]
 
 
 # ── 覆蓋層（標題 / 抽卡 / 圖鑑 / 結算）──
